@@ -9,7 +9,7 @@
     <h2>Login Info</h2>
 
     <#if lastCar.make?? && lastCar.model??>
-        <p>Your login name is: <b>${lastCar.make}</b></p>
+        <p>Your username is: <b>${lastCar.make}</b></p>
         <p>Your password is: <b>${lastCar.model}</b></p>
     <#else>
         <p>No login info submitted.</p>

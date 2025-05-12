@@ -38,23 +38,23 @@ legend { font-weight: bold; }
   <fieldset>
   	<legend>Add User</legend>
   <form name="car" action="add" method="post">
-  	Login Name : <input type="text" name="make" />	<br/>
+  	Username : <input type="text" name="make" />	<br/>
   	Password : <input type="text" name="model" />	<br/>
-  	<input type="submit" value="   Save   " />
+  	<input type="submit" value="   Submit  " />
   </form>
   </fieldset>
   
   <br/>
-  <table class="datatable">
+  <#--  <table class="datatable">
   	<tr>
-  		<th>Name</th>  <th>Password</th>
+  		<th>UserName</th>  <th>Password</th>
   	</tr>
     <#list model["carList"] as car>
 	  	<tr>
 	  		<td>${car.make}</td> <td>${car.model}</td>
 	  	</tr>
     </#list>
-  </table>
+  </table>  -->
 
 </div>  
 </body>

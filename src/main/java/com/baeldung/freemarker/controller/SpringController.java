@@ -32,7 +32,7 @@ public class SpringController {
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String home(Locale locale, Model model) {
-        return "redirect:/cars";
+        return "redirect:/LoginPage";
     }
 
    // static {
@@ -41,26 +41,26 @@ public class SpringController {
        // carList.add(new Car("Nissan", "Altima"));
    // }
 
-    @RequestMapping(value = "/cars", method = RequestMethod.GET)
+    @RequestMapping(value = "/LoginPage", method = RequestMethod.GET)
     public String init(@ModelAttribute("model") ModelMap model) {
         model.addAttribute("carList", carList);
         return "index";
     }
 
-    @RequestMapping(value = "/add", method = RequestMethod.POST)
-    public String addCar(@ModelAttribute("car") Car car) {
-        if (null != car && null != car.getMake() && null != car.getModel() && !car.getMake().isEmpty() && !car.getModel().isEmpty()) {
-            carList.add(car);
-        }
-        return "redirect:/cars";
-    }
+    // @RequestMapping(value = "/add", method = RequestMethod.POST)
+    // public String addCar(@ModelAttribute("car") Car car) {
+    //     if (null != car && null != car.getMake() && null != car.getModel() && !car.getMake().isEmpty() && !car.getModel().isEmpty()) {
+    //         carList.add(car);
+    //     }
+    //     return "redirect:/LoginPage";
+    // }
 
    
 
 
 
     // Show the commons page and display last added car and login info
-    @RequestMapping(value = "/cars/commons", method = RequestMethod.GET)
+    @RequestMapping(value = "/LoginPage/UserInfo", method = RequestMethod.GET)
     public String showCommonsPage(HttpSession session, Model model) {
         // Retrieve login info from session
         Object username = session.getAttribute("make");
@@ -86,18 +86,19 @@ public class SpringController {
 
 
     // Save username and password to session and redirect to the commons page
-    @RequestMapping(value = "/cars/commons", method = RequestMethod.POST)
+    @RequestMapping(value = "/add", method = RequestMethod.POST)
     public String showCommonsInfo(@ModelAttribute("car") Car car, HttpSession session) {
         String username = car.getMake(); // Assuming car make is the username
         String password = car.getModel(); // Assuming car model is the password
         
         if (username != null && password != null && !username.isEmpty() && !password.isEmpty()) {
+            carList.add(car);
             // Save login info to session
             session.setAttribute("username", username);
             session.setAttribute("password", password);
         }
 
-        return "redirect:/cars/commons";  // Redirect to GET method to display login info and last car
+        return "redirect:/LoginPage/UserInfo";  // Redirect to GET method to display login info and last car
     }
 
     
