@@ -34,7 +34,9 @@ legend { font-weight: bold; }
 </div>
 
 <div id="content">
-  
+  <#if errorMessage??>
+    <p style="color:red;">${errorMessage}</p>
+  </#if>
   <fieldset>
   	<legend>Add User</legend>
   <form name="car" action="add" method="post">
@@ -45,6 +47,8 @@ legend { font-weight: bold; }
   </fieldset>
   
   <br/>
+  
+
   <#--  <table class="datatable">
   	<tr>
   		<th>UserName</th>  <th>Password</th>

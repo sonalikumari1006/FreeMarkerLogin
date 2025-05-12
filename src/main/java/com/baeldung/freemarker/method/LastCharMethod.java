@@ -1,10 +1,11 @@
 package com.baeldung.freemarker.method;
 
-import freemarker.template.TemplateMethodModelEx;
-import freemarker.template.TemplateModelException;
+import java.util.List;
+
 import org.springframework.util.StringUtils;
 
-import java.util.List;
+import freemarker.template.TemplateMethodModelEx;
+import freemarker.template.TemplateModelException;
 
 public class LastCharMethod implements TemplateMethodModelEx {
     public Object exec(List arguments) throws TemplateModelException {
